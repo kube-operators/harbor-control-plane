@@ -1,0 +1,24 @@
+# permissions for end users to edit harborrobotaccounts.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: harborrobotaccount-editor-role
+rules:
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborrobotaccounts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborrobotaccounts/status
+  verbs:
+  - get

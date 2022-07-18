@@ -1,0 +1,20 @@
+# permissions for end users to view harborprojects.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: harborproject-viewer-role
+rules:
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborprojects
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborprojects/status
+  verbs:
+  - get

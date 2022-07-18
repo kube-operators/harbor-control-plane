@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborprojects
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborprojects/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - goharbor.k7s.dev
+  resources:
+  - harborprojects/status
+  verbs:
+  - get
+  - patch
+  - update
